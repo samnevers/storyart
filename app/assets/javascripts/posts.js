@@ -1,4 +1,17 @@
 
+paper.install(window);
+
+window.onload = function() {
+  paper.setup("paper-canvas");
+
+  var path = new Path();
+  path.strokeColor = 'black';
+  var start = new Point(100, 100);
+  path.moveTo(start);
+  path.lineTo(start.add([200, -50]));
+  view.draw();
+};
+
 var pressed = [];
 
   window.addEventListener('keydown', function(e) {
@@ -41,7 +54,8 @@ var pressed = [];
   Mousetrap.bind('< 3', function() { console.log("Mousetrapped: heart");
   var $heartImg = $("<img>");
   $heartImg.attr("src", "/assets/images/heart.png");
-  
+  $heartImg.addClass("heart animation");
+
 
   $("#canvas").append($heartImg);
 
