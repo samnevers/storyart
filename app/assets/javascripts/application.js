@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require mousetrap.min.js
-//= require paper.min.js
+//= require snap.svg-min.js
 //= require turbolinks
 //= require_tree .

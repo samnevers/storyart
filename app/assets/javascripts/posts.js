@@ -1,17 +1,4 @@
 
-// installing paper.js
-paper.install(window);
-
-window.onload = function() {
-  paper.setup("paper-canvas");
-
-  var path = new Path();
-  path.strokeColor = 'black';
-  var start = new Point(100, 100);
-  path.moveTo(start);
-  path.lineTo(start.add([200, -50]));
-  view.draw();
-};
 
 // all input is pushed to this array
 var pressed = [];
@@ -53,7 +40,27 @@ var pressed = [];
 
 
   // mousetrap test
-  Mousetrap.bind('a b c d e', function() { console.log("Mousetrapped: konami"); });
+  Mousetrap.bind('a b c d e', function() { console.log("Mousetrapped: konami");
+  var path = new Path.Circle(new Point(280, 50), 35);
+  project.activeLayer.lastChild.fillColor = "dodgerblue";
+});
+
+  // mousetrap regex test
+  var re = /\b[gG]\S+\b/;
+
+  // Mousetrap.bind(re, function () {
+    // console.log("Omg it works!");
+  // });
+
+
+
+  // Bind mousetrap to anything that would end a word
+    // Get all of the text that the user has typed
+      // Split it on all word boundaries
+        // Run an animation for each one
+
+
+
 
   // heart easter egg
   Mousetrap.bind('< 3', function() { console.log("Mousetrapped: heart");

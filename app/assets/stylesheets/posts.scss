@@ -75,6 +75,10 @@ button {
   border: 1px solid gainsboro;
 }
 
+#paper-canvas {
+  width: 100%;
+  height: 100vh;
+}
 
 // easter egg: heart animation
 
@@ -90,6 +94,7 @@ button {
 }
 
 .heart {
+  z-index: 90000000;
   margin: 25vw;
   width: 225px;
   height: 195px;
