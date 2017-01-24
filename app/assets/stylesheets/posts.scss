@@ -93,11 +93,34 @@ button {
   }
 }
 
-.heart {
-  z-index: 90000000;
-  margin: 25vw;
-  width: 225px;
-  height: 195px;
-  animation: beat 0.8s;
-  animation-iteration-count: infinite;
+// .heart {
+//   z-index: 90000000;
+//   margin: 25vw;
+//   width: 225px;
+//   height: 195px;
+//   animation: beat 0.8s;
+//   animation-iteration-count: infinite;
+// }
+
+// Animations
+
+.anims {
+  background: transparent;
+  position: absolute;
+  .heart {
+    z-index: 90000000;
+    margin: 25vw;
+    width: 225px;
+    height: 195px;
+    animation: beat 0.8s;
+    animation-iteration-count: infinite;
+  }
+  #face {
+    left: 500px;
+    top: 280px;
+  }
+  #bigCircle {
+    animation: beat 0.8s;
+    animation-iteration-count: infinite;
+  }
 }
