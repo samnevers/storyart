@@ -5,7 +5,7 @@ $(document).ready(function () {
   s = Snap("#canvas");
 
   // all input is pushed to this array
-  var pressed = []
+  var pressed = [];
 
   // event: logging live text preview
     window.addEventListener('keydown', function(e) {
@@ -20,11 +20,11 @@ $(document).ready(function () {
 
         // TO DO: Render a new line when 'Enter' key is pressed
       // } else if (e.keyCode === 13){
-      //   pressed.push("<br />");
+      //   pressed.push("<br />"); - try googling for shift + enter or maybe try utilising mousetrap
       //   console.log(pressed);
 
       // removing fn keys from live text preview
-      } else if (e.keyCode === 16 || e.keyCode === 17 || e.keyCode === 18 || e.keyCode === 91 || e.keyCode === 20 || e.keyCode === 9 || e.keyCode === 37 || e.keyCode === 38 || e.keyCode === 39 || e.keyCode === 40 || e.keyCode === 13) {
+    } else if (e.keyCode === 16 || e.keyCode === 17 || e.keyCode === 18 || e.keyCode === 91 || e.keyCode === 93 || e.keyCode === 20 || e.keyCode === 9 || e.keyCode === 37 || e.keyCode === 38 || e.keyCode === 39 || e.keyCode === 40 || e.keyCode === 13) {
         console.log(e.key + " is invalid");
         return e.key;
       } else {
@@ -47,24 +47,30 @@ $(document).ready(function () {
 
     Mousetrap.bind('a b c d e', function() {
       console.log("Mousetrapped: konami");
-      Snap.load('<%= image_path( "svg3.svg" ) %>', function( e ) {
-        console.log(e);
-        // console.log( e.node.outerHTML );
-        var face = e.node.outerHTML;
-
-        $("#canvas").append( face );
+      Snap.load('<%= image_path( "svg2.svg" ) %>', function(f) {
+        f.selectAll("path").attr({stroke: "#336699", class: "anims", id: "svg2"});
+        var g = f.select("g");
+        s.append(g);
       });
-
     });
 
-  function onSVGLoaded(data){
-    s.append(data);
-  }
+    Mousetrap.bind("z z z", function() {
+      console.log("zzzzz");
+      Snap.load('<%= image_path("svg1.svg") %>', function(f) {
+        f.selectAll("path").attr({stroke: "#f0c06e", class: "anims", id: "svg1"});
+        var g = f.select("g");
+        s.append(g);
+      });
+    });
+
+  // function onSVGLoaded(data){
+  //   s.append(data);
+  // }
 
     Mousetrap.bind('f g h', function() {
       console.log("Mousetrapped: konami");
       Snap.load('<%= image_path("svg3.svg") %>', function (f) {
-        f.selectAll("path").attr({stroke: "#00ff00", class: "anims", id: "face", cx: 1000, cy: 400 });
+        f.selectAll("path").attr({stroke: "#00ff00", class: "anims", id: "face" });
         var g = f.select("g");
         s.append(g);
         g.drag();
@@ -81,14 +87,6 @@ $(document).ready(function () {
           'stroke-dashoffset': '0'
         }, 2000, mina.easein);
       });
-      // console.log(face);
-      // face.attr({
-      //   class: "anims",
-      //   id: "face",
-      //   x: 200,
-      //   y: 400
-      // });
-      // face.animate({x:400}, 2000, mina.easein);
     });
 
 
@@ -112,7 +110,18 @@ $(document).ready(function () {
         // Split it on all word boundaries
           // Run an animation for each one
 
+  // Actual Mousetrap logic
 
+  Mousetrap.bind('space', function () {
+    if (pressed !== 0) {
+      console.log(pressed);
+      var input = pressed.join("");
+      console.log(input);
+      if (input ) {
+
+      }
+    }
+  })
 
 
     // heart easter egg - CHANGE THIS TO SVG
@@ -129,7 +138,7 @@ $(document).ready(function () {
     // events: background color
     Mousetrap.bind('.', function() {
       console.log("Mousetrapped: color change");
-      var bgColors = ["#FFF000", "#663399", "#6c6c6c", "#909090", "#000", "#000ccc"];
+      var bgColors = ["#FFF000", "#663399", "#03502d", "#909090", "#000", "#3c53e1", "#d794cb", "#500319", "#b00000", "#024795", "#e8eff7", "#e667f9", "#061c4f"];
       var randomColor = bgColors[Math.floor(Math.random()*bgColors.length)];
       console.log(randomColor);
       $("#canvas").css({"backgroundColor": randomColor});
@@ -147,4 +156,12 @@ $(document).ready(function () {
 
     // note to self - THIS DOES NOT WORK:
     // Mousetrap.bind('fghi', function() { console.log("Mousetrapped: fghi"); });
+
+
+    // AJAX POST REQUEST ATTEMPT
+
+
+    var value = $("input").val();
+
+
 });
