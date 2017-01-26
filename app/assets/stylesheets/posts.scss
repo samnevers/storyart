@@ -14,7 +14,7 @@ body {
   top: 0;
   left: 0;
   position: relative;
-  border: 1px solid dodgerblue;
+  // border: 1px solid dodgerblue;
 
 }
 
@@ -71,7 +71,7 @@ button {
   float: left;
 }
 
-#button {
+input#button.button, input[type="submit" i] {
   width: (100% / 3);
   height: 5vh;
   font-family: monospace;

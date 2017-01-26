@@ -5,13 +5,13 @@
       <p class="live-text"></p>
     </div>
     <div class="text-input input">
-        <%= form_tag("/posts", :class => "button", method: "post", :id => "done") do %>
+        <%= form_tag("/posts", :class => "button", method: "post", :id => "save") do %>
         <input type="text" name="input" class="input-box mousetrap" placeholder="Tell me, baby, what's your story?"></input>
         <div class="buttons-input">
-          <%= submit_tag "Save" %>
-        <% end %>
           <button id="redo">Redo</button>
           <button id="play">Play</button>
+          <%= submit_tag "Save", :class => "button", :id => "button" %>
+        <% end %>
         </div>
     </div>
   </div>

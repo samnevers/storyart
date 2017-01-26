@@ -2,8 +2,8 @@
   // These are used & defined when a keydown event is fired in the text input area
 var s = Snap("#canvas"); // setting up snap svg
 var wordsString = ""; // all of the pressed keys/words as a string
-var pressedKeys = pressedKeys || []; // array of all keys pressed
-var wordsArray = wordsArray || []; // array of all words
+var pressedKeys; // array of all keys pressed
+var wordsArray; // array of all words
 var word = "";
 
 // Triggered when space key pressedKeys
@@ -13,13 +13,17 @@ var spaceFunction = function ( word ) {
   console.log(pressedKeys);
   console.log(pressedKeys.join(""));
   console.log(wordsString); // returning 'test' - first word only
-  wordsArray = wordsString.split(" ") || wordsArray;
-  console.log(wordsArray); // returning empty arr
+  if ( wordsArray && wordsArray.length > 0 ) {
+  wordsArray = wordsArray;
+    } else { wordsString.split(" ")}
+  console.log(wordsArray); // returning array with empty string
   var lastWord = wordsArray[wordsArray.length - 1] || word;
   console.log(lastWord); // ! returning word
-  var startsWith = lastWord[0];
+  console.log(word);
+  var startsWith = lastWord[0] || word;
   console.log(startsWith); // !issue: undefined
   if ( !word ) {
+    console.log("!word ran"); // not running
     animateArray.push(startsWith);
     console.log(animateArray);
   }
@@ -301,19 +305,19 @@ var spaceFunction = function ( word ) {
 // $(document).ready(function () {
 
   // all input is pushed to this array
-  // var pressedKeys = [];
-  // animateArray = animateArray || [];
+  pressedKeys = [];
+  animateArray = animateArray || [];
 
   // event: logging live text preview
     window.addEventListener('keydown', function(e) {
 
-      console.log(e.key);
-      console.log(e.keyCode);
+      // console.log(e.key);
+      // console.log(e.keyCode);
 
       // TO DO: Expand delete functionality to coincide with indexOf value when arrow keys are used...
       if (e.keyCode === 46 || e.keyCode === 8) {
         pressedKeys.pop();
-        console.log(pressedKeys);
+        // console.log(pressedKeys);
 
         // TO DO: Render a new line when 'Enter' key is pressedKeys
       // } else if (e.keyCode === 13){
@@ -322,14 +326,14 @@ var spaceFunction = function ( word ) {
 
       // removing fn keys from live text preview
     } else if (e.keyCode === 16 || e.keyCode === 17 || e.keyCode === 18 || e.keyCode === 91 || e.keyCode === 93 || e.keyCode === 20 || e.keyCode === 9 || e.keyCode === 37 || e.keyCode === 38 || e.keyCode === 39 || e.keyCode === 40 || e.keyCode === 13) {
-        console.log(e.key + " is invalid");
+        // console.log(e.key + " is invalid");
         return e.key;
       } else {
           pressedKeys.push(e.key);
-          console.log(pressedKeys);
+          // console.log(pressedKeys);
       }
         var liveText = pressedKeys.join("");
-        console.log(liveText);
+        // console.log(liveText);
         var $p = $(".live-text");
         $p.text(liveText);
 
@@ -443,12 +447,11 @@ $(document).ready(function () {
   //   console.log("Play Tell Me Baby");
   // }
 
-    // note to self - THIS DOES NOT WORK:
-    // Mousetrap.bind('fghi', function() { console.log("Mousetrapped: fghi"); });
 
 
     // REDO BUTTON functionality
-    $("#redo").on("click", function () {
+    $("#redo").on("click", function (e) {
+      e.preventDefault(e);
       console.log("Imma redo this canvas");
     });
 
@@ -472,8 +475,12 @@ var animateArray = animateArray || [];
 
 // to space out animation timing
 var displayWord = function ( num ) {
+  console.log(num);
   window.setTimeout(function () {
     var word = wordsArray[num];
+    console.log(wordsArray);
+    console.log(num);
+    console.log(word);
     spaceFunction( word );
   }, num * 1000);
 };
