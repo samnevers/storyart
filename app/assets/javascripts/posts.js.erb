@@ -13,9 +13,16 @@ var spaceFunction = function ( word ) {
   console.log(pressedKeys);
   console.log(pressedKeys.join(""));
   console.log(wordsString); // returning 'test' - first word only
-  if ( wordsArray && wordsArray.length > 0 ) {
-  wordsArray = wordsArray;
-    } else { wordsString.split(" ")}
+  console.log(wordsString.split(" "));
+  console.log(wordsArray);
+  // console.log(wordsArray.length);
+  if ( wordsArray > 0 ) {
+    if (wordsArray.length > 0) {
+      wordsArray = wordsArray;
+    } else {
+      wordsArray = wordsString.split(" ");
+}
+  } else { wordsArray = wordsString.split(" "); }
   console.log(wordsArray); // returning array with empty string
   var lastWord = wordsArray[wordsArray.length - 1] || word;
   console.log(lastWord); // ! returning word
@@ -487,6 +494,7 @@ var displayWord = function ( num ) {
 
 if ( animateArray && animateArray.length > 0 ) {
   for ( var i = 0; i < wordsArray.length; i += 1 ) {
+    console.log("an animate iteration ran");
 //     // window.setTimeout(function () {
       displayWord( i );
 //     // }, i * 1000);
