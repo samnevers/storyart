@@ -67,25 +67,26 @@ var spaceFunction = function ( word ) {
     });
     bigCircle.animate({r:40}, 2000, mina.bounce);
   } else if (startsWith === "d" || startsWith === "D" || startsWith === "4") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
+    var blueRect = s.rect(350, 150, 40, 80, 0, 0);
+    blueRect.attr({
+      fill:'#2783b2',
       stroke: "#000",
-      strokeWidth: 5,
+      strokeWidth: 2,
       class: "anims",
-      id: "bigCircle"
+      id: "blueRect"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    blueRect.animate({width: 80}, 2000, mina.bounce);
   } else if (startsWith === "e" || startsWith === "E" || startsWith === "5") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
+    var yelRect = s.rect(250, 350, 10, 20);
+    var yelRectGroup = s.group(yelRect, s.rect(350, 250, 20, 10));
+    yelRectGroup.attr({
+      fill:'#f9ec33',
       stroke: "#000",
-      strokeWidth: 5,
+      strokeWidth: 2,
       class: "anims",
-      id: "bigCircle"
+      id: "yelRect"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    yelRect.animate({width: 250}, 2000, mina.easein);
   } else if (startsWith === "f" || startsWith === "F" || startsWith === "6") {
     var bigCircle = s.circle(350, 150, 10);
     bigCircle.attr({
@@ -481,7 +482,7 @@ $(document).ready(function () {
 var animateArray = animateArray || [];
 
 // to space out animation timing
-var displayWord = function ( num ) {
+var displayWord = function ( num, wordsArray ) {
   console.log(num);
   window.setTimeout(function () {
     var word = wordsArray[num];
@@ -495,8 +496,9 @@ var displayWord = function ( num ) {
 if ( animateArray && animateArray.length > 0 ) {
   for ( var i = 0; i < wordsArray.length; i += 1 ) {
     console.log("an animate iteration ran");
+    console.log( animateArray[ i ], wordsArray[ i ] );
 //     // window.setTimeout(function () {
-      displayWord( i );
+      displayWord( i, wordsArray );
 //     // }, i * 1000);
   }
 }
