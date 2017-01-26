@@ -1,11 +1,308 @@
-var s;
-$(document).ready(function () {
+// Global variables
+  // These are used & defined when a keydown event is fired in the text input area
+var s = Snap("#canvas"); // setting up snap svg
+var wordsString = ""; // all of the pressed keys/words as a string
+var pressedKeys = pressedKeys || []; // array of all keys pressed
+var wordsArray = wordsArray || []; // array of all words
+var word = "";
 
-  // Initialising SNAP in the canvas div
-  s = Snap("#canvas");
+// Triggered when space key pressedKeys
+var spaceFunction = function ( word ) {
+  console.log( word );
+  wordsString = pressedKeys.join("") || wordsString;
+  console.log(pressedKeys);
+  console.log(pressedKeys.join(""));
+  console.log(wordsString); // returning 'test' - first word only
+  wordsArray = wordsString.split(" ") || wordsArray;
+  console.log(wordsArray); // returning empty arr
+  var lastWord = wordsArray[wordsArray.length - 1] || word;
+  console.log(lastWord); // ! returning word
+  var startsWith = lastWord[0];
+  console.log(startsWith); // !issue: undefined
+  if ( !word ) {
+    animateArray.push(startsWith);
+    console.log(animateArray);
+  }
+
+  if (startsWith === "a" || startsWith === "A" || startsWith === "1") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "b" || startsWith === "B" || startsWith === "2") {
+    console.log("purple");
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#663399',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "c" || startsWith === "C" || startsWith === "3") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#00ffff',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "d" || startsWith === "D" || startsWith === "4") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "e" || startsWith === "E" || startsWith === "5") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "f" || startsWith === "F" || startsWith === "6") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "g" || startsWith === "G" || startsWith === "7") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "h" || startsWith === "H" || startsWith === "8") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "i" || startsWith === "I" || startsWith === "9") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "j" || startsWith === "J" || startsWith === "0") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "k" || startsWith === "K") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "L" || startsWith === "l") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "M" || startsWith === "m") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "n" || startsWith === "N") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "o" || startsWith === "O") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "p" || startsWith === "P") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "q" || startsWith === "Q") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "r" || startsWith === "R") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "s" || startsWith === "S") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "t" || startsWith === "T") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "u" || startsWith === "U") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "v" || startsWith === "V") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "w" || startsWith === "W") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "x" || startsWith === "X") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "y" || startsWith === "Y") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else if (startsWith === "z" || startsWith === "Z") {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  } else {
+    var bigCircle = s.circle(350, 150, 10);
+    bigCircle.attr({
+      fill:'#0dd333',
+      stroke: "#000",
+      strokeWidth: 5,
+      class: "anims",
+      id: "bigCircle"
+    });
+    bigCircle.animate({r:40}, 2000, mina.bounce);
+  }
+};
+
+// $(document).ready(function () {
 
   // all input is pushed to this array
-  var pressed = [];
+  // var pressedKeys = [];
+  // animateArray = animateArray || [];
 
   // event: logging live text preview
     window.addEventListener('keydown', function(e) {
@@ -15,23 +312,23 @@ $(document).ready(function () {
 
       // TO DO: Expand delete functionality to coincide with indexOf value when arrow keys are used...
       if (e.keyCode === 46 || e.keyCode === 8) {
-        pressed.pop();
-        console.log(pressed);
+        pressedKeys.pop();
+        console.log(pressedKeys);
 
-        // TO DO: Render a new line when 'Enter' key is pressed
+        // TO DO: Render a new line when 'Enter' key is pressedKeys
       // } else if (e.keyCode === 13){
-      //   pressed.push("<br />"); - try googling for shift + enter or maybe try utilising mousetrap
-      //   console.log(pressed);
+      //   pressedKeys.push("<br />"); - try googling for shift + enter or maybe try utilising mousetrap
+      //   console.log(pressedKeys);
 
       // removing fn keys from live text preview
     } else if (e.keyCode === 16 || e.keyCode === 17 || e.keyCode === 18 || e.keyCode === 91 || e.keyCode === 93 || e.keyCode === 20 || e.keyCode === 9 || e.keyCode === 37 || e.keyCode === 38 || e.keyCode === 39 || e.keyCode === 40 || e.keyCode === 13) {
         console.log(e.key + " is invalid");
         return e.key;
       } else {
-          pressed.push(e.key);
-          console.log(pressed);
+          pressedKeys.push(e.key);
+          console.log(pressedKeys);
       }
-        var liveText = pressed.join("");
+        var liveText = pressedKeys.join("");
         console.log(liveText);
         var $p = $(".live-text");
         $p.text(liveText);
@@ -42,6 +339,7 @@ $(document).ready(function () {
 
     });
 
+$(document).ready(function () {
 
     // SNAP TESTING
 
@@ -112,16 +410,7 @@ $(document).ready(function () {
 
   // Actual Mousetrap logic
 
-  Mousetrap.bind('space', function () {
-    if (pressed !== 0) {
-      console.log(pressed);
-      var input = pressed.join("");
-      console.log(input);
-      if (input ) {
-
-      }
-    }
-  })
+  Mousetrap.bind('space', spaceFunction);
 
 
     // heart easter egg - CHANGE THIS TO SVG
@@ -150,7 +439,7 @@ $(document).ready(function () {
   //   console.log("Play Tell Me Baby");
   // });
   //
-  // if (pressed.join("") === "where you come from and where you gonna go this time") {
+  // if (pressedKeys.join("") === "where you come from and where you gonna go this time") {
   //   console.log("Play Tell Me Baby");
   // }
 
@@ -158,10 +447,41 @@ $(document).ready(function () {
     // Mousetrap.bind('fghi', function() { console.log("Mousetrapped: fghi"); });
 
 
-    // AJAX POST REQUEST ATTEMPT
+    // REDO BUTTON functionality
+    $("#redo").on("click", function () {
+      console.log("Imma redo this canvas");
+    });
 
-
-    var value = $("input").val();
-
+    // PLAY BUTTON FUNCTIONALITY
+    $("#play").on("click", function (e) {
+      e.preventDefault();
+      console.log("TEST", animateArray);
+      if ( animateArray && animateArray.length > 0 ) {
+        for ( var i = 0; i < wordsArray.length; i += 1 ) {
+          console.log("AKK");
+          // window.setTimeout(function () {
+            displayWord( i );
+          // }, i * 1000);
+        }
+      }
+    });
 
 });
+
+var animateArray = animateArray || [];
+
+// to space out animation timing
+var displayWord = function ( num ) {
+  window.setTimeout(function () {
+    var word = wordsArray[num];
+    spaceFunction( word );
+  }, num * 1000);
+};
+
+if ( animateArray && animateArray.length > 0 ) {
+  for ( var i = 0; i < wordsArray.length; i += 1 ) {
+//     // window.setTimeout(function () {
+      displayWord( i );
+//     // }, i * 1000);
+  }
+}

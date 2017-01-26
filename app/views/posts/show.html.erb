@@ -1,0 +1,37 @@
+<div id="container">
+
+  <div id="text-container">
+    <div id="text-preview">
+      <p class="live-text"><%= @post.input %></p>
+    </div>
+    <div class="text-input input">
+        <%= form_tag("/posts", :class => "button", method: "post", :id => "done") do %>
+        <input type="text" name="input" class="input-box mousetrap"></input>
+        <div class="buttons-input">
+          <%= submit_tag "Done", :class => "button" %>
+                <% end %>
+          <button id="redo">Redo</button>
+          <button id="play">Play</button>
+        </div>
+    </div>
+  </div>
+
+  <svg id="canvas">
+  </svg>
+
+
+</div>
+
+<script>
+  var wordsString = "<%= @post.input %>";
+  var wordsArray = wordsString.split(" ");
+  var animateArray = [];
+  for (var i = 0; i < wordsArray.length; i += 1 ) {
+    var currentWord = wordsArray[i];
+    animateArray.push( currentWord[0] );
+  }
+  // animateArray - the first letter of each word
+  // wordsString - all of the keys/words as a string
+  // wordsArray - individual words
+
+</script>

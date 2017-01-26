@@ -45,6 +45,7 @@ body {
   height: 20%;
   background-color: white;
   display: inline-block;
+  white-space: wrap;
 }
 
 .input-box {
@@ -64,6 +65,13 @@ body {
 }
 
 button {
+  width: (100% / 3);
+  height: 5vh;
+  font-family: monospace;
+  float: left;
+}
+
+#button {
   width: (100% / 3);
   height: 5vh;
   font-family: monospace;

@@ -8,12 +8,11 @@
         <%= form_tag("/posts", :class => "button", method: "post", :id => "done") do %>
         <input type="text" name="input" class="input-box mousetrap" placeholder="Tell me, baby, what's your story?"></input>
         <div class="buttons-input">
+          <%= submit_tag "Save" %>
+        <% end %>
           <button id="redo">Redo</button>
           <button id="play">Play</button>
-          <%= submit_tag "Done" %>
-        <!-- <button id="done">Done</button> -->
         </div>
-      <% end %>
     </div>
   </div>
 
