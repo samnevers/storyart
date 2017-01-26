@@ -8,13 +8,13 @@ var word = "";
 
 // Triggered when space key pressedKeys
 var spaceFunction = function ( word ) {
-  console.log( word );
+  // console.log( word );
   wordsString = pressedKeys.join("") || wordsString;
-  console.log(pressedKeys);
-  console.log(pressedKeys.join(""));
-  console.log(wordsString); // returning 'test' - first word only
-  console.log(wordsString.split(" "));
-  console.log(wordsArray);
+  // console.log(pressedKeys);
+  // console.log(pressedKeys.join(""));
+  // console.log(wordsString); // returning 'test' - first word only
+  // console.log(wordsString.split(" "));
+  // console.log(wordsArray);
   // console.log(wordsArray.length);
   if ( wordsArray > 0 ) {
     if (wordsArray.length > 0) {
@@ -23,16 +23,18 @@ var spaceFunction = function ( word ) {
       wordsArray = wordsString.split(" ");
 }
   } else { wordsArray = wordsString.split(" "); }
-  console.log(wordsArray); // returning array with empty string
+  // console.log(wordsArray); // returning array with empty string
   var lastWord = wordsArray[wordsArray.length - 1] || word;
-  console.log(lastWord); // ! returning word
-  console.log(word);
+  // console.log(lastWord); // ! returning word
+  // console.log(word);
   var startsWith = lastWord[0] || word;
-  console.log(startsWith); // !issue: undefined
+  // console.log(startsWith); // !issue: undefined
   if ( !word ) {
     console.log("!word ran"); // not running
     animateArray.push(startsWith);
-    console.log(animateArray);
+    console.log(wordsArray);
+    return wordsArray;
+    // console.log(animateArray);
   }
 
   if (startsWith === "a" || startsWith === "A" || startsWith === "1") {
@@ -55,9 +57,9 @@ var spaceFunction = function ( word ) {
       class: "anims",
       id: "bigCircle"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    bigCircle.animate({r:27}, 1700, mina.bounce);
   } else if (startsWith === "c" || startsWith === "C" || startsWith === "3") {
-    var bigCircle = s.circle(350, 150, 10);
+    var bigCircle = s.circle(550, 650, 10);
     bigCircle.attr({
       fill:'#00ffff',
       stroke: "#000",
@@ -65,9 +67,9 @@ var spaceFunction = function ( word ) {
       class: "anims",
       id: "bigCircle"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    bigCircle.animate({r:70}, 2000, mina.bounce);
   } else if (startsWith === "d" || startsWith === "D" || startsWith === "4") {
-    var blueRect = s.rect(350, 150, 40, 80, 0, 0);
+    var blueRect = s.rect(750, 550, 40, 80, 0, 0);
     blueRect.attr({
       fill:'#2783b2',
       stroke: "#000",
@@ -88,225 +90,382 @@ var spaceFunction = function ( word ) {
     });
     yelRect.animate({width: 250}, 2000, mina.easein);
   } else if (startsWith === "f" || startsWith === "F" || startsWith === "6") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
+    var redSq = s.rect(450, 430, 120, 120);
+    redSq.attr({
+      fill:'#ff0101',
       stroke: "#000",
-      strokeWidth: 5,
+      strokeWidth: 3,
       class: "anims",
-      id: "bigCircle"
+      id: "redSq"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    redSq.animate({height: 140, width: 140}, 2000, mina.easeout);
   } else if (startsWith === "g" || startsWith === "G" || startsWith === "7") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
+    var tinyCircle = s.circle(530, 240, 5);
+    var tinyCircles = s.group(tinyCircle, s.circle(140, 430, 7));
+    tinyCircles.attr({
+      fill:'#bf33f9',
       stroke: "#000",
-      strokeWidth: 5,
+      strokeWidth: 2,
       class: "anims",
-      id: "bigCircle"
+      id: "tinyCircle"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    tinyCircle.animate({r:80}, 1000, mina.easing);
+    tinyCircles.select("circle:nth-child(2)").animate({r:20}, 1000, mina.easing);
   } else if (startsWith === "h" || startsWith === "H" || startsWith === "8") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
+    var orangeRect = s.rect(50, 270, 100, 220);
+    orangeRect.attr({
+      fill:'#f77810',
       stroke: "#000",
       strokeWidth: 5,
       class: "anims",
-      id: "bigCircle"
+      id: "orangeRect"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    orangeRect.animate({y:460}, 2000, mina.bounce);
   } else if (startsWith === "i" || startsWith === "I" || startsWith === "9") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
+    var aquaBar = s.rect(700, 450, 210, 10);
+    var aquaBars = s.group(aquaBar, s.rect(700, 470, 190, 10), s.rect(700, 430, 190, 10));
+    aquaBars.attr({
+      fill:'#5deee5',
       stroke: "#000",
-      strokeWidth: 5,
+      strokeWidth: 2,
       class: "anims",
-      id: "bigCircle"
+      id: "aquaBar"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    aquaBar.animate({x:680}, 1600, mina.bounce);
   } else if (startsWith === "j" || startsWith === "J" || startsWith === "0") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
-      stroke: "#000",
-      strokeWidth: 5,
-      class: "anims",
-      id: "bigCircle"
+    Snap.load('<%= image_path("svg3.svg") %>', function (f) {
+      f.selectAll("path").attr({stroke: "#00ff00", class: "anims", id: "face" });
+      var g = f.select("g");
+      s.append(g);
+      g.drag();
+      var path = g.select("path");
+      var length = path.getTotalLength();
+      console.log( length );
+      path.attr({
+        cx: 100,
+        strokewidth: 5,
+        'stroke-dasharray': length, 'stroke-dashoffset': length
+      });
+      path.animate({
+        cx: 400,
+        strokewidth: 5,
+        stroke: "#ff0000",
+        'stroke-dashoffset': '0'
+      }, 2000, mina.easein);
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
   } else if (startsWith === "k" || startsWith === "K") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
-      stroke: "#000",
-      strokeWidth: 5,
-      class: "anims",
-      id: "bigCircle"
-    });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    var t1 = s.polygon([110, 10, 110, 230, 80, 30]).attr({fill: "#90e456", stroke: "#000", strokewidth: 5});
   } else if (startsWith === "L" || startsWith === "l") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
-      stroke: "#000",
-      strokeWidth: 5,
-      class: "anims",
-      id: "bigCircle"
-    });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    Snap.load('<%= image_path("svg4.svg") %>', function (f) {
+          f.selectAll("path").attr({stroke: "#fff300", class: "anims", id: "msquiggle" });
+          var g = f.select("g");
+          s.append(g);
+          g.drag();
+          var path = g.select("path");
+          var length = path.getTotalLength();
+          console.log( length );
+          path.attr({
+            cx: 100,
+            strokewidth: 5,
+            'stroke-dasharray': length, 'stroke-dashoffset': length
+          });
+          path.animate({
+            cx: 400,
+            strokewidth: 5,
+            stroke: "#388790",
+            'stroke-dashoffset': '0'
+          }, 2000, mina.easein);
+        });
   } else if (startsWith === "M" || startsWith === "m") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
-      stroke: "#000",
-      strokeWidth: 5,
-      class: "anims",
-      id: "bigCircle"
-    });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    Snap.load('<%= image_path("svg5.svg") %>', function (f) {
+          f.selectAll("path").attr({stroke: "#575dae", class: "anims", id: "csquiggle" });
+          var g = f.select("g");
+          s.append(g);
+          g.drag();
+          var path = g.select("path");
+          var length = path.getTotalLength();
+          console.log( length );
+          path.attr({
+            cx: 100,
+            strokewidth: 5,
+            'stroke-dasharray': length, 'stroke-dashoffset': length
+          });
+          path.animate({
+            cx: 400,
+            strokewidth: 5,
+            stroke: "#a957ae",
+            'stroke-dashoffset': '0'
+          }, 2000, mina.easein);
+        });
   } else if (startsWith === "n" || startsWith === "N") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
+    var dot = s.circle(750, 350, 8);
+    var dots = s.group(dot, s.circle(670, 80, 6), s.circle(520, 763, 7), s.circle(443, 293, 8), s.circle(209, 446, 7), s.circle(307, 287, 6), s.circle(132, 4, 8));
+    dots.attr({
+      fill:'#ca8bd2',
       stroke: "#000",
-      strokeWidth: 5,
+      strokeWidth: 1,
       class: "anims",
-      id: "bigCircle"
+      id: "dots"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    dot.animate({r:5}, 2000, mina.bounce);
   } else if (startsWith === "o" || startsWith === "O") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
-      stroke: "#000",
-      strokeWidth: 5,
-      class: "anims",
-      id: "bigCircle"
-    });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    Snap.load('<%= image_path("svg6.svg") %>', function (f) {
+          f.selectAll("path").attr({stroke: "#ceea15", class: "anims", id: "squiggle" });
+          var g = f.select("g");
+          s.append(g);
+          g.drag();
+          var path = g.select("path");
+          var length = path.getTotalLength();
+          console.log( length );
+          path.attr({
+            cx: 100,
+            strokewidth: 5,
+            'stroke-dasharray': length, 'stroke-dashoffset': length
+          });
+          path.animate({
+            cx: 400,
+            strokewidth: 5,
+            stroke: "#68a188",
+            'stroke-dashoffset': '0'
+          }, 2000, mina.bounce);
+        });
   } else if (startsWith === "p" || startsWith === "P") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
-      stroke: "#000",
-      strokeWidth: 5,
-      class: "anims",
-      id: "bigCircle"
-    });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    Snap.load('<%= image_path("svg7.svg") %>', function (f) {
+          f.selectAll("path").attr({stroke: "#7a1942", class: "anims", id: "cross" });
+          var g = f.select("g");
+          s.append(g);
+          g.drag();
+          var path = g.select("path");
+          var length = path.getTotalLength();
+          console.log( length );
+          path.attr({
+            cx: 100,
+            strokewidth: 5,
+            'stroke-dasharray': length, 'stroke-dashoffset': length
+          });
+          path.animate({
+            cx: 400,
+            strokewidth: 5,
+            stroke: "#141b4f",
+            'stroke-dashoffset': '0'
+          }, 2000, mina.bounce);
+        });
   } else if (startsWith === "q" || startsWith === "Q") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
+    var circ = s.circle(750, 557, 57);
+    var circGroup = s.group(circ, s.circle(750, 557, 36), s.circle(750, 557, 15));
+    circGroup.attr({
+      fill: "#fbf78f",
       stroke: "#000",
-      strokeWidth: 5,
+      strokeWidth: 0,
       class: "anims",
-      id: "bigCircle"
+      id: "circGrop"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    circ.animate({fill: "#e58ffb"}, 2000, mina.bounce);
+    circGroup.select("circle:nth-child(2)").animate({fill: "#8fc7fb"}, 2000, mina.bounce);
+    circGroup.select("circle:nth-child(3)").animate({fill: "#e58ffb"}, 2000, mina.bounce);
   } else if (startsWith === "r" || startsWith === "R") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
+    var r1 = s.rect(573, 423, 180, 180);
+    var rGroup = s.group(r1, s.rect(769, 32, 210, 210));
+    rGroup.attr({
+      fill:'#b8346c',
       stroke: "#000",
-      strokeWidth: 5,
+      strokeWidth: 3,
       class: "anims",
-      id: "bigCircle"
+      id: "rect"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    r1.animate({width:40}, 2000, mina.bounce);
+    rGroup.select("rect:nth-child(2)").animate({height: 60}, 2000, mina.easing);
   } else if (startsWith === "s" || startsWith === "S") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
-      stroke: "#000",
-      strokeWidth: 5,
-      class: "anims",
-      id: "bigCircle"
-    });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    Snap.load('<%= image_path("svg8.svg") %>', function (f) {
+          f.selectAll("path").attr({stroke: "#301e65", class: "anims", id: "squiggle" });
+          var g = f.select("g");
+          s.append(g);
+          g.drag();
+          var path = g.select("path");
+          var length = path.getTotalLength();
+          console.log( length );
+          path.attr({
+            cx: 100,
+            strokewidth: 5,
+            'stroke-dasharray': length, 'stroke-dashoffset': length
+          });
+          path.animate({
+            cx: 400,
+            strokewidth: 5,
+            stroke: "#4864bf",
+            'stroke-dashoffset': '0'
+          }, 1600, mina.bounce);
+        });
   } else if (startsWith === "t" || startsWith === "T") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
-      stroke: "#000",
-      strokeWidth: 5,
-      class: "anims",
-      id: "bigCircle"
-    });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    Snap.load('<%= image_path("svg9.svg") %>', function (f) {
+          f.selectAll("path").attr({stroke: "#012345", class: "anims", id: "squiggle" });
+          var g = f.select("g");
+          s.append(g);
+          g.drag();
+          var path = g.select("path");
+          var length = path.getTotalLength();
+          console.log( length );
+          path.attr({
+            cx: 100,
+            strokewidth: 5,
+            'stroke-dasharray': length, 'stroke-dashoffset': length
+          });
+          path.animate({
+            cx: 400,
+            strokewidth: 5,
+            stroke: "#f8ee82",
+            'stroke-dashoffset': '0'
+          }, 1600, mina.easein);
+        });
   } else if (startsWith === "u" || startsWith === "U") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
-      stroke: "#000",
-      strokeWidth: 5,
-      class: "anims",
-      id: "bigCircle"
-    });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    Snap.load('<%= image_path("svg10.svg") %>', function (f) {
+          f.selectAll("path").attr({stroke: "#292efd", class: "anims", id: "face2" });
+          var g = f.select("g");
+          s.append(g);
+          g.drag();
+          var path = g.select("path");
+          var length = path.getTotalLength();
+          console.log( length );
+          path.attr({
+            cx: 100,
+            strokewidth: 5,
+            'stroke-dasharray': length, 'stroke-dashoffset': length
+          });
+          path.animate({
+            cx: 400,
+            strokewidth: 5,
+            stroke: "#fd19ea",
+            'stroke-dashoffset': '0'
+          }, 1600, mina.easein);
+        });
   } else if (startsWith === "v" || startsWith === "V") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
-      stroke: "#000",
-      strokeWidth: 5,
-      class: "anims",
-      id: "bigCircle"
-    });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    Snap.load('<%= image_path("svg11.svg") %>', function (f) {
+          f.selectAll("path").attr({stroke: "#4fcb12", class: "anims", id: "flower" });
+          var g = f.select("g");
+          s.append(g);
+          g.drag();
+          var path = g.select("path");
+          var length = path.getTotalLength();
+          console.log( length );
+          path.attr({
+            cx: 100,
+            strokewidth: 5,
+            'stroke-dasharray': length, 'stroke-dashoffset': length
+          });
+          path.animate({
+            cx: 400,
+            strokewidth: 5,
+            stroke: "#326f60",
+            'stroke-dashoffset': '0'
+          }, 1600, mina.easein);
+        });
   } else if (startsWith === "w" || startsWith === "W") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
-      stroke: "#000",
-      strokeWidth: 5,
-      class: "anims",
-      id: "bigCircle"
-    });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    Snap.load('<%= image_path("svg12.svg") %>', function (f) {
+          f.selectAll("path").attr({stroke: "#e5a5c9", class: "anims", id: "heart" });
+          var g = f.select("g");
+          s.append(g);
+          g.drag();
+          var path = g.select("path");
+          var length = path.getTotalLength();
+          console.log( length );
+          path.attr({
+            cx: 100,
+            strokewidth: 5,
+            'stroke-dasharray': length, 'stroke-dashoffset': length
+          });
+          path.animate({
+            cx: 400,
+            strokewidth: 5,
+            stroke: "#b11",
+            'stroke-dashoffset': '0'
+          }, 1600, mina.bounce);
+        });
   } else if (startsWith === "x" || startsWith === "X") {
-    var bigCircle = s.circle(350, 150, 10);
+    var bigCircle = s.circle(123, 10, 15);
     bigCircle.attr({
-      fill:'#0dd333',
+      fill:'#395e67',
       stroke: "#000",
-      strokeWidth: 5,
+      strokeWidth: 2,
       class: "anims",
       id: "bigCircle"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    bigCircle.animate({r:28}, 1200, mina.easing);
   } else if (startsWith === "y" || startsWith === "Y") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
+    var circ1 = s.circle(777, 222, 20);
+    var circGroup1 = s.group(circ1, s.circle(777, 222, 15), s.circle(777, 222, 10));
+    var circ2 = s.circle(222, 666, 15);
+    var circGroup2 = s.group(circ2, s.circle(222, 666, 9), s.circle(222, 666, 4));
+    circGroup1.attr({
+      fill: "#185319",
       stroke: "#000",
-      strokeWidth: 5,
+      strokeWidth: 0,
       class: "anims",
-      id: "bigCircle"
+      id: "circGrop"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    circGroup2.attr({
+      fill: "#185319",
+      stroke: "#000",
+      strokeWidth: 0,
+      class: "anims",
+      id: "circGrop"
+    });
+    circ1.animate({fill: "#ffe50d"}, 2000, mina.bounce);
+    circGroup1.select("circle:nth-child(2)").animate({fill: "#f86707"}, 2000, mina.bounce);
+    circGroup1.select("circle:nth-child(3)").animate({fill: "#a21af8"}, 2000, mina.bounce);
+    circ2.animate({fill: "#ffe50d"}, 2000, mina.bounce);
+    circGroup2.select("circle:nth-child(2)").animate({fill: "#f86707"}, 2000, mina.bounce);
+    circGroup2.select("circle:nth-child(3)").animate({fill: "#a21af8"}, 2000, mina.bounce);
   } else if (startsWith === "z" || startsWith === "Z") {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
+    var aquaBar = s.rect(0, 450, 210, 10);
+    var aquaBar2 = s.rect(630, 470, 10, 210);
+    var aquaBars = s.group(aquaBar, s.rect(0, 470, 190, 10), s.rect(0, 430, 190, 10), s.rect(0, 410, 230, 10));
+    var aquaBars2 = s.group(aquaBar2, s.rect(610, 430, 10, 230), s.rect(580, 410, 10, 210));
+    aquaBars.attr({
+      fill:'#12ab1d',
       stroke: "#000",
-      strokeWidth: 5,
+      strokeWidth: 2,
       class: "anims",
-      id: "bigCircle"
+      id: "aquaBar"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    aquaBars2.attr({
+      fill:'#12ab1d',
+      stroke: "#000",
+      strokeWidth: 2,
+      class: "anims",
+      id: "aquaBar"
+    });
+    aquaBar.animate({x:280}, 1600, mina.bounce);
+    aquaBars.select("rect:nth-child(2)").animate({x:220}, 1600, mina.bounce);
+    aquaBars.select("rect:nth-child(3)").animate({x:260}, 1600, mina.bounce);
+    aquaBars.select("rect:nth-child(4)").animate({x:210}, 1600, mina.bounce);
+    aquaBar2.animate({x:640}, 1600, mina.easein);
+    aquaBars2.select("rect:nth-child(2)").animate({x:600}, 1600, mina.easein);
+    aquaBars2.select("rect:nth-child(3)").animate({x:680}, 1600, mina.easein);
   } else {
-    var bigCircle = s.circle(350, 150, 10);
-    bigCircle.attr({
-      fill:'#0dd333',
+    var circ1 = s.circle(543, 392, 42);
+    var circGroup1 = s.group(circ1, s.circle(543, 392, 29), s.circle(543, 392, 10));
+    var circ2 = s.circle(387, 543, 32);
+    var circGroup2 = s.group(circ2, s.circle(387, 543, 19), s.circle(387, 543, 9));
+    circGroup1.attr({
+      fill: "#1a59f8",
       stroke: "#000",
-      strokeWidth: 5,
+      strokeWidth: 0,
       class: "anims",
-      id: "bigCircle"
+      id: "circGrop"
     });
-    bigCircle.animate({r:40}, 2000, mina.bounce);
+    circGroup2.attr({
+      fill: "#1a59f8",
+      stroke: "#000",
+      strokeWidth: 0,
+      class: "anims",
+      id: "circGrop"
+    });
+    circ1.animate({fill: "#1a59f8"}, 2000, mina.easeout);
+    circGroup1.select("circle:nth-child(2)").animate({fill: "#d42bba"}, 2200, mina.easeout);
+    circGroup1.select("circle:nth-child(3)").animate({fill: "#a21af8"}, 2200, mina.easeout);
+    circ2.animate({fill: "#1a59f8"}, 2000, mina.easeout);
+    circGroup2.select("circle:nth-child(2)").animate({fill: "#d42bba"}, 2200, mina.easeout);
+    circGroup2.select("circle:nth-child(3)").animate({fill: "#a21af8"}, 2200, mina.easeout);
   }
 };
 
@@ -463,20 +622,24 @@ $(document).ready(function () {
       console.log("Imma redo this canvas");
     });
 
+
+  var wordsArray = wordsArray || [];
+
     // PLAY BUTTON FUNCTIONALITY
-    $("#play").on("click", function (e) {
-      e.preventDefault();
-      console.log("TEST", animateArray);
+    $("#play").on("click", function (e, wordsArray) {
+      e.preventDefault(e);
+      console.log(wordsArray);
+      console.log("TEST", animateArray, animateArray.length);
       if ( animateArray && animateArray.length > 0 ) {
         for ( var i = 0; i < wordsArray.length; i += 1 ) {
-          console.log("AKK");
+          console.log( wordsArray);
+          console.log(i);
           // window.setTimeout(function () {
-            displayWord( i );
+            displayWord( i, wordsArray );
           // }, i * 1000);
         }
       }
     });
-
 });
 
 var animateArray = animateArray || [];
