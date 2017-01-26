@@ -157,7 +157,7 @@ var spaceFunction = function ( word ) {
     var t1 = s.polygon([110, 10, 110, 230, 80, 30]).attr({fill: "#90e456", stroke: "#000", strokewidth: 5});
   } else if (startsWith === "L" || startsWith === "l") {
     Snap.load('<%= image_path("svg4.svg") %>', function (f) {
-          f.selectAll("path").attr({stroke: "#fff300", class: "anims", id: "msquiggle" });
+          f.selectAll("path").attr({stroke: "#fff300", class: "anims", id: "l" });
           var g = f.select("g");
           s.append(g);
           g.drag();
@@ -178,7 +178,7 @@ var spaceFunction = function ( word ) {
         });
   } else if (startsWith === "M" || startsWith === "m") {
     Snap.load('<%= image_path("svg5.svg") %>', function (f) {
-          f.selectAll("path").attr({stroke: "#575dae", class: "anims", id: "csquiggle" });
+          f.selectAll("path").attr({stroke: "#575dae", class: "anims", id: "m" });
           var g = f.select("g");
           s.append(g);
           g.drag();
@@ -210,7 +210,7 @@ var spaceFunction = function ( word ) {
     dot.animate({r:5}, 2000, mina.bounce);
   } else if (startsWith === "o" || startsWith === "O") {
     Snap.load('<%= image_path("svg6.svg") %>', function (f) {
-          f.selectAll("path").attr({stroke: "#ceea15", class: "anims", id: "squiggle" });
+          f.selectAll("path").attr({stroke: "#ceea15", class: "anims", id: "o" });
           var g = f.select("g");
           s.append(g);
           g.drag();
@@ -231,7 +231,7 @@ var spaceFunction = function ( word ) {
         });
   } else if (startsWith === "p" || startsWith === "P") {
     Snap.load('<%= image_path("svg7.svg") %>', function (f) {
-          f.selectAll("path").attr({stroke: "#7a1942", class: "anims", id: "cross" });
+          f.selectAll("path").attr({stroke: "#7a1942", class: "anims", id: "p" });
           var g = f.select("g");
           s.append(g);
           g.drag();
@@ -277,7 +277,7 @@ var spaceFunction = function ( word ) {
     rGroup.select("rect:nth-child(2)").animate({height: 60}, 2000, mina.easing);
   } else if (startsWith === "s" || startsWith === "S") {
     Snap.load('<%= image_path("svg8.svg") %>', function (f) {
-          f.selectAll("path").attr({stroke: "#301e65", class: "anims", id: "squiggle" });
+          f.selectAll("path").attr({stroke: "#301e65", class: "anims", id: "s" });
           var g = f.select("g");
           s.append(g);
           g.drag();
@@ -298,7 +298,7 @@ var spaceFunction = function ( word ) {
         });
   } else if (startsWith === "t" || startsWith === "T") {
     Snap.load('<%= image_path("svg9.svg") %>', function (f) {
-          f.selectAll("path").attr({stroke: "#012345", class: "anims", id: "squiggle" });
+          f.selectAll("path").attr({stroke: "#012345", class: "anims", id: "t" });
           var g = f.select("g");
           s.append(g);
           g.drag();
@@ -319,7 +319,7 @@ var spaceFunction = function ( word ) {
         });
   } else if (startsWith === "u" || startsWith === "U") {
     Snap.load('<%= image_path("svg10.svg") %>', function (f) {
-          f.selectAll("path").attr({stroke: "#292efd", class: "anims", id: "face2" });
+          f.selectAll("path").attr({stroke: "#292efd", class: "anims", id: "u" });
           var g = f.select("g");
           s.append(g);
           g.drag();
@@ -340,7 +340,7 @@ var spaceFunction = function ( word ) {
         });
   } else if (startsWith === "v" || startsWith === "V") {
     Snap.load('<%= image_path("svg11.svg") %>', function (f) {
-          f.selectAll("path").attr({stroke: "#4fcb12", class: "anims", id: "flower" });
+          f.selectAll("path").attr({stroke: "#4fcb12", class: "anims", id: "v" });
           var g = f.select("g");
           s.append(g);
           g.drag();
@@ -361,7 +361,7 @@ var spaceFunction = function ( word ) {
         });
   } else if (startsWith === "w" || startsWith === "W") {
     Snap.load('<%= image_path("svg12.svg") %>', function (f) {
-          f.selectAll("path").attr({stroke: "#e5a5c9", class: "anims", id: "heart" });
+          f.selectAll("path").attr({stroke: "#e5a5c9", class: "anims", id: "w" });
           var g = f.select("g");
           s.append(g);
           g.drag();
@@ -451,14 +451,14 @@ var spaceFunction = function ( word ) {
       stroke: "#000",
       strokeWidth: 0,
       class: "anims",
-      id: "circGrop"
+      id: "miscOne"
     });
     circGroup2.attr({
       fill: "#1a59f8",
       stroke: "#000",
       strokeWidth: 0,
       class: "anims",
-      id: "circGrop"
+      id: "miscTwo"
     });
     circ1.animate({fill: "#1a59f8"}, 2000, mina.easeout);
     circGroup1.select("circle:nth-child(2)").animate({fill: "#d42bba"}, 2200, mina.easeout);
@@ -598,7 +598,7 @@ $(document).ready(function () {
     // events: background color
     Mousetrap.bind('.', function() {
       console.log("Mousetrapped: color change");
-      var bgColors = ["#FFF000", "#663399", "#03502d", "#909090", "#000", "#3c53e1", "#d794cb", "#500319", "#b00000", "#024795", "#e8eff7", "#e667f9", "#061c4f"];
+      var bgColors = ["#FFF000", "#663399", "#16c25b", "#000", "#3c53e1", "#d794cb", "#b00000", "#024795", "#e8eff7", "#e667f9", "#061c4f"];
       var randomColor = bgColors[Math.floor(Math.random()*bgColors.length)];
       console.log(randomColor);
       $("#canvas").css({"backgroundColor": randomColor});

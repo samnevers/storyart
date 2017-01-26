@@ -104,14 +104,6 @@ input#button.button, input[type="submit" i] {
   }
 }
 
-// .heart {
-//   z-index: 90000000;
-//   margin: 25vw;
-//   width: 225px;
-//   height: 195px;
-//   animation: beat 0.8s;
-//   animation-iteration-count: infinite;
-// }
 
 // Animations
 
@@ -144,4 +136,51 @@ input#button.button, input[type="submit" i] {
 #svg2 {
   position: relative;
   transform: translate(450px, 300px);
+}
+
+#w {
+  position: relative;
+  transform: translate(606px, 416px);
+  width: 44px;
+  height: 44px;
+}
+
+#v {
+  position: relative;
+  transform: translate(178px, 569px);
+}
+
+#u {
+  position: relative;
+  transform: translate(602px, 467px);
+}
+
+#t {
+  position: relative;
+  transform: translate(439px, 58px);
+}
+
+#s {
+  position: relative;
+  transform: translate(107px, 383px);
+}
+
+#p {
+  position: relative;
+  transform: translate(33%, 87%);
+}
+
+#o {
+  position: relative;
+  transform: translate(654px, 111px);
+}
+
+#m {
+  position: relative;
+  transform: translate(582px, 20px);
+}
+
+#l {
+  position: relative;
+  transform: translate(0px, 0px);
 }
