@@ -1,11 +1,29 @@
 // Global variables
   // These are used & defined when a keydown event is fired in the text input area
 var s = Snap("#canvas"); // setting up snap svg
+var canvasWidth = $("#canvas").width();
+var canvasHeight = $("#canvas").height();
 var wordsString = ""; // all of the pressed keys/words as a string
 var pressedKeys; // array of all keys pressed
 var wordsArray; // array of all words
 var word = "";
 
+// Thanks Jashkenas!
+var randomNumber = function(min, max) {
+    if (max == null) {
+      max = min;
+      min = 0;
+    }
+    return min + Math.floor(Math.random() * (max - min + 1));
+  };
+
+var randomX = function () {
+  return Math.random() * canvasWidth;
+};
+
+var randomY = function () {
+  return Math.random() * canvasHeight;
+};
 // Triggered when space key pressedKeys
 var spaceFunction = function ( word ) {
   // console.log( word );
@@ -38,7 +56,7 @@ var spaceFunction = function ( word ) {
   }
 
   if (startsWith === "a" || startsWith === "A" || startsWith === "1") {
-    var bigCircle = s.circle(350, 150, 10);
+    var bigCircle = s.circle(Math.random() * canvasWidth, Math.random() * canvasHeight, 10);
     bigCircle.attr({
       fill:'#0dd333',
       stroke: "#000",
@@ -49,7 +67,7 @@ var spaceFunction = function ( word ) {
     bigCircle.animate({r:40}, 2000, mina.bounce);
   } else if (startsWith === "b" || startsWith === "B" || startsWith === "2") {
     console.log("purple");
-    var bigCircle = s.circle(350, 150, 10);
+    var bigCircle = s.circle(Math.random() * canvasWidth, Math.random() * canvasHeight, 10);
     bigCircle.attr({
       fill:'#663399',
       stroke: "#000",
@@ -59,7 +77,7 @@ var spaceFunction = function ( word ) {
     });
     bigCircle.animate({r:27}, 1700, mina.bounce);
   } else if (startsWith === "c" || startsWith === "C" || startsWith === "3") {
-    var bigCircle = s.circle(550, 650, 10);
+    var bigCircle = s.circle(Math.random() * canvasWidth, Math.random() * canvasHeight, 10);
     bigCircle.attr({
       fill:'#00ffff',
       stroke: "#000",
@@ -79,7 +97,7 @@ var spaceFunction = function ( word ) {
     });
     blueRect.animate({width: 80}, 2000, mina.bounce);
   } else if (startsWith === "e" || startsWith === "E" || startsWith === "5") {
-    var yelRect = s.rect(250, 350, 10, 20);
+    var yelRect = s.rect(randomX(), randomY(), randomNumber(5, 20), randomNumber(10, 25));
     var yelRectGroup = s.group(yelRect, s.rect(350, 250, 20, 10));
     yelRectGroup.attr({
       fill:'#f9ec33',
@@ -90,7 +108,7 @@ var spaceFunction = function ( word ) {
     });
     yelRect.animate({width: 250}, 2000, mina.easein);
   } else if (startsWith === "f" || startsWith === "F" || startsWith === "6") {
-    var redSq = s.rect(450, 430, 120, 120);
+    var redSq = s.rect(randomX(), randomY(), randomNumber(5, 15));
     redSq.attr({
       fill:'#ff0101',
       stroke: "#000",
@@ -98,7 +116,8 @@ var spaceFunction = function ( word ) {
       class: "anims",
       id: "redSq"
     });
-    redSq.animate({height: 140, width: 140}, 2000, mina.easeout);
+    var randomSide = randomNumber(20, 80);
+    redSq.animate({height: randomSide, width: randomSide}, 2000, mina.easeout);
   } else if (startsWith === "g" || startsWith === "G" || startsWith === "7") {
     var tinyCircle = s.circle(530, 240, 5);
     var tinyCircles = s.group(tinyCircle, s.circle(140, 430, 7));
@@ -155,15 +174,19 @@ var spaceFunction = function ( word ) {
     });
   } else if (startsWith === "k" || startsWith === "K") {
     var t1 = s.polygon([110, 10, 110, 230, 80, 30]).attr({fill: "#90e456", stroke: "#000", strokewidth: 5});
-  } else if (startsWith === "L" || startsWith === "l") {
+  } else if (startsWith === "l" || startsWith === "L") {
     Snap.load('<%= image_path("svg4.svg") %>', function (f) {
           f.selectAll("path").attr({stroke: "#fff300", class: "anims", id: "l" });
+          if ( Math.random() < 0.5 ) {
+            f.selectAll("path").attr({ class: "anims l-one" });
+          } else if (Math.random() > 0.5) {
+            f.selectAll("path").attr({ class: "anims l-two" });
+          }
           var g = f.select("g");
           s.append(g);
           g.drag();
           var path = g.select("path");
           var length = path.getTotalLength();
-          console.log( length );
           path.attr({
             cx: 100,
             strokewidth: 5,
@@ -207,6 +230,9 @@ var spaceFunction = function ( word ) {
       class: "anims",
       id: "dots"
     });
+    var random = randomNumber(0, 360);
+    var randomScale = Math.random() + 0.5;
+    dots.transform( "transform: rotate(" + random + "deg) scale(" + randomScale + "," + randomScale + ")" );
     dot.animate({r:5}, 2000, mina.bounce);
   } else if (startsWith === "o" || startsWith === "O") {
     Snap.load('<%= image_path("svg6.svg") %>', function (f) {

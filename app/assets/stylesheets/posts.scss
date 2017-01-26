@@ -182,5 +182,13 @@ input#button.button, input[type="submit" i] {
 
 #l {
   position: relative;
-  transform: translate(0px, 0px);
+  // transform: translate(0px, 0px);
+}
+
+.l-one {
+  transform: translate(50px, 100px);
+}
+
+.l-two {
+  transform: translate(100px, 75px);
 }
