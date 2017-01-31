@@ -48,9 +48,9 @@ var spaceFunction = function ( word ) {
   var startsWith = lastWord[0] || word;
   // console.log(startsWith); // !issue: undefined
   if ( !word ) {
-    console.log("!word ran"); // not running
+    // console.log("!word ran"); // not running
     animateArray.push(startsWith);
-    console.log(wordsArray);
+    // console.log(wordsArray);
     return wordsArray;
     // console.log(animateArray);
   }
@@ -66,7 +66,7 @@ var spaceFunction = function ( word ) {
     });
     bigCircle.animate({r:40}, 2000, mina.bounce);
   } else if (startsWith === "b" || startsWith === "B" || startsWith === "2") {
-    console.log("purple");
+    // console.log("purple");
     var bigCircle = s.circle(Math.random() * canvasWidth, Math.random() * canvasHeight, 10);
     bigCircle.attr({
       fill:'#663399',
@@ -541,7 +541,7 @@ $(document).ready(function () {
     // SNAP TESTING
 
     Mousetrap.bind('a b c d e', function() {
-      console.log("Mousetrapped: konami");
+      // console.log("Mousetrapped: konami");
       Snap.load('<%= image_path( "svg2.svg" ) %>', function(f) {
         f.selectAll("path").attr({stroke: "#336699", class: "anims", id: "svg2"});
         var g = f.select("g");
@@ -550,7 +550,7 @@ $(document).ready(function () {
     });
 
     Mousetrap.bind("z z z", function() {
-      console.log("zzzzz");
+      // console.log("zzzzz");
       Snap.load('<%= image_path("svg1.svg") %>', function(f) {
         f.selectAll("path").attr({stroke: "#f0c06e", class: "anims", id: "svg1"});
         var g = f.select("g");
@@ -563,7 +563,7 @@ $(document).ready(function () {
   // }
 
     Mousetrap.bind('f g h', function() {
-      console.log("Mousetrapped: konami");
+      // console.log("Mousetrapped: konami");
       Snap.load('<%= image_path("svg3.svg") %>', function (f) {
         f.selectAll("path").attr({stroke: "#00ff00", class: "anims", id: "face" });
         var g = f.select("g");
@@ -571,7 +571,7 @@ $(document).ready(function () {
         g.drag();
         var path = g.select("path");
         var length = path.getTotalLength();
-        console.log( length );
+        // console.log( length );
         path.attr({
           cx: 100,
           'stroke-dasharray': length, 'stroke-dashoffset': length
@@ -599,26 +599,9 @@ $(document).ready(function () {
     });
 
 
-
-    // Bind mousetrap to anything that would end a word
-      // Get all of the text that the user has typed
-        // Split it on all word boundaries
-          // Run an animation for each one
-
   // Actual Mousetrap logic
 
   Mousetrap.bind('space', spaceFunction);
-
-
-    // heart easter egg - CHANGE THIS TO SVG
-    Mousetrap.bind('< 3', function() { console.log("Mousetrapped: heart");
-    var $heartImg = $("<img>");
-    $heartImg.attr("src", "/assets/images/heart.png");
-    $heartImg.addClass("heart animation");
-
-    $("#canvas").append($heartImg);
-
-    });
 
 
     // events: background color
@@ -626,26 +609,14 @@ $(document).ready(function () {
       console.log("Mousetrapped: color change");
       var bgColors = ["#FFF000", "#663399", "#16c25b", "#000", "#3c53e1", "#d794cb", "#b00000", "#024795", "#e8eff7", "#e667f9", "#061c4f"];
       var randomColor = bgColors[Math.floor(Math.random()*bgColors.length)];
-      console.log(randomColor);
+      // console.log(randomColor);
       $("#canvas").css({"backgroundColor": randomColor});
     });
-
-
-    // TO DO: EASTER EGG
-  //   Mousetrap.bind('w h e r e  y o u c o m e f r o m a n d w h e r e y o u g o n n a g o t h i s t i m e', function() {
-  //   console.log("Play Tell Me Baby");
-  // });
-  //
-  // if (pressedKeys.join("") === "where you come from and where you gonna go this time") {
-  //   console.log("Play Tell Me Baby");
-  // }
-
-
 
     // REDO BUTTON functionality
     $("#redo").on("click", function (e) {
       e.preventDefault(e);
-      console.log("Imma redo this canvas");
+      // console.log("Imma redo this canvas");
     });
 
 
@@ -654,12 +625,12 @@ $(document).ready(function () {
     // PLAY BUTTON FUNCTIONALITY
     $("#play").on("click", function (e, wordsArray) {
       e.preventDefault(e);
-      console.log(wordsArray);
-      console.log("TEST", animateArray, animateArray.length);
+      // console.log(wordsArray);
+      // console.log("TEST", animateArray, animateArray.length);
       if ( animateArray && animateArray.length > 0 ) {
         for ( var i = 0; i < wordsArray.length; i += 1 ) {
-          console.log( wordsArray);
-          console.log(i);
+          // console.log( wordsArray);
+          // console.log(i);
           // window.setTimeout(function () {
             displayWord( i, wordsArray );
           // }, i * 1000);
@@ -672,20 +643,20 @@ var animateArray = animateArray || [];
 
 // to space out animation timing
 var displayWord = function ( num, wordsArray ) {
-  console.log(num);
+  // console.log(num);
   window.setTimeout(function () {
     var word = wordsArray[num];
-    console.log(wordsArray);
-    console.log(num);
-    console.log(word);
+    // console.log(wordsArray);
+    // console.log(num);
+    // console.log(word);
     spaceFunction( word );
   }, num * 1000);
 };
 
 if ( animateArray && animateArray.length > 0 ) {
   for ( var i = 0; i < wordsArray.length; i += 1 ) {
-    console.log("an animate iteration ran");
-    console.log( animateArray[ i ], wordsArray[ i ] );
+    // console.log("an animate iteration ran");
+    // console.log( animateArray[ i ], wordsArray[ i ] );
 //     // window.setTimeout(function () {
       displayWord( i, wordsArray );
 //     // }, i * 1000);
