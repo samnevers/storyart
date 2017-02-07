@@ -158,7 +158,6 @@
         g.drag();
         var path = g.select("path");
         var length = path.getTotalLength();
-        console.log( length );
         path.attr({
           cx: 100,
           strokewidth: 5,
@@ -206,7 +205,6 @@
             g.drag();
             var path = g.select("path");
             var length = path.getTotalLength();
-            console.log( length );
             path.attr({
               cx: 100,
               strokewidth: 5,
@@ -241,7 +239,6 @@
             g.drag();
             var path = g.select("path");
             var length = path.getTotalLength();
-            console.log( length );
             path.attr({
               cx: 100,
               strokewidth: 5,
@@ -262,7 +259,6 @@
             g.drag();
             var path = g.select("path");
             var length = path.getTotalLength();
-            console.log( length );
             path.attr({
               cx: 100,
               strokewidth: 5,
@@ -308,7 +304,6 @@
             g.drag();
             var path = g.select("path");
             var length = path.getTotalLength();
-            console.log( length );
             path.attr({
               cx: 100,
               strokewidth: 5,
@@ -329,7 +324,6 @@
             g.drag();
             var path = g.select("path");
             var length = path.getTotalLength();
-            console.log( length );
             path.attr({
               cx: 100,
               strokewidth: 5,
@@ -350,7 +344,6 @@
             g.drag();
             var path = g.select("path");
             var length = path.getTotalLength();
-            console.log( length );
             path.attr({
               cx: 100,
               strokewidth: 5,
@@ -371,7 +364,6 @@
             g.drag();
             var path = g.select("path");
             var length = path.getTotalLength();
-            console.log( length );
             path.attr({
               cx: 100,
               strokewidth: 5,
@@ -392,7 +384,6 @@
             g.drag();
             var path = g.select("path");
             var length = path.getTotalLength();
-            console.log( length );
             path.attr({
               cx: 100,
               strokewidth: 5,
@@ -529,7 +520,6 @@
 
       // Randomise background color
       Mousetrap.bind('.', function() {
-        console.log("Mousetrapped: color change");
         var bgColors = ["#FFF000", "#663399", "#16c25b", "#000", "#3c53e1", "#d794cb", "#b00000", "#024795", "#e8eff7", "#e667f9", "#061c4f"];
         var randomColor = bgColors[Math.floor(Math.random()*bgColors.length)];
         $("#canvas").css({"backgroundColor": randomColor});
